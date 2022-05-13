@@ -2,4 +2,4 @@
 
 ## Gabriel Ramírez
 
-### Ve en vivo el [Demo](https://gabydevx.github.io/Teknosun_Ramirez/) del último desafío
+### Ve en vivo el [Demo](https://gabydevx.github.io/DesafiosJavascript/) del último desafío

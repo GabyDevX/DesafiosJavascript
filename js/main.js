@@ -1,90 +1,77 @@
-const reglas =
-  "En este inicio de sesión para probar deberás ingresar uno de los cuatro nombres validos: Gabriel, Camila, Loki o Luna. Al ingresar un nombre válido tendrás 4 intentos para ingresar la contraseña correcta, la cual será el nombre de usuario (en minúsculas). para salir de esta instancia mientras ingresas los nombres deberás ingresar la palabra 'esc' y si quieres volver a ver las reglas deberás ingresar la palabra 'reglas'."
+// Selección de elementos del DOM
 
-alert(reglas)
+const numeroHabitaciones = document.getElementById('numeroHabitaciones')
+const numeroBaños = document.getElementById('numeroBaños')
+const tieneGarage = document.getElementById('garage')
+const tienePatio = document.getElementById('patio')
+const tamañoTerreno = document.getElementById('terreno')
+const botonCalculo = document.getElementById('botonCalculo')
+const resultadoCalculo = document.getElementById('resultadoCalculo')
 
-alert('A continuación deberas ingresar un nombre de usuario')
+//Función para calcular el precio estimado del valor de una casa
 
-let nombre = prompt('Ingrese su nombre de usuario').toLowerCase()
+const calcularPrecio = () => {
+  // Valores
 
-while (nombre !== null) {
-  if (nombre === 'reglas') {
-    alert(reglas)
-    nombre = 'x'
-    continue
-  } else if (nombre === 'esc') {
-    break
-  } else if (nombre === 'gabriel') {
-    alert('Bien ' + nombre + ', ingresa tu contraseña ahora:')
-    for (let i = 0; i < 4; i++) {
-      let contraseña = prompt('Ingresa tu contraseña: ')
-      let intento = i + 1
-      if (contraseña == 'gabriel') {
-        alert('Contraseña correcta!')
-        break
-      } else {
-        alert('Contraseña incorrecta, intento ' + intento + ' de 4')
-      }
+  let habitaciones = Number(numeroHabitaciones.value)
+  let baños = Number(numeroBaños.value)
+  let garage = tieneGarage.value.toLowerCase()
+  let patio = tienePatio.value.toLowerCase()
+  let terreno = Number(tamañoTerreno.value)
 
-      if (i == 3) {
-        alert('Cuenta bloqueada')
-      }
-    }
-    break
-  } else if (nombre === 'camila') {
-    alert('Bien ' + nombre + ', ingresa tu contraseña ahora:')
-    for (let i = 0; i < 4; i++) {
-      let contraseña = prompt('Ingresa tu contraseña: ')
-      let intento = i + 1
-      if (contraseña == 'camila') {
-        alert('Contraseña correcta!')
-        break
-      } else {
-        alert('Contraseña incorrecta, intento ' + intento + ' de 4')
-      }
+  // Variables internas
 
-      if (i == 3) {
-        alert('Cuenta bloqueada')
-      }
-    }
-    break
-  } else if (nombre === 'loki') {
-    alert('Bien ' + nombre + ', ingresa tu contraseña ahora:')
-    for (let i = 0; i < 4; i++) {
-      let contraseña = prompt('Ingresa tu contraseña: ')
-      let intento = i + 1
-      if (contraseña == 'loki') {
-        alert('Contraseña correcta!')
-        break
-      } else {
-        alert('Contraseña incorrecta, intento ' + intento + ' de 4')
-      }
+  let precioHabitaciones = 0
+  let precioBaños = 0
+  let precioGarage = 0
+  let precioPatio = 0
+  let precioTerreno = 0
 
-      if (i == 3) {
-        alert('Cuenta bloqueada')
-      }
-    }
-    break
-  } else if (nombre === 'luna') {
-    alert('Bien ' + nombre + ', ingresa tu contraseña ahora:')
-    for (let i = 0; i < 4; i++) {
-      let contraseña = prompt('Ingresa tu contraseña: ')
-      let intento = i + 1
-      if (contraseña == 'luna') {
-        alert('Contraseña correcta!')
-        break
-      } else {
-        alert('Contraseña incorrecta, intento ' + intento + ' de 4')
-      }
+  // Calculos con ciclos y condicionales
 
-      if (i == 3) {
-        alert('Cuenta bloqueada.')
-      }
-    }
-    break
-  } else {
-    alert('Nombre de usuario no encontrado, por favor ingrese uno válido.')
-    nombre = prompt('Ingrese su nombre de usuario').toLowerCase()
-    continue
+  // Habitaciones
+  for (let i = 0; i < habitaciones; i++) {
+    precioHabitaciones += 10000
   }
+
+  // Baños
+  for (let i = 0; i < baños; i++) {
+    precioBaños += 5000
+  }
+
+  // Garage
+  if (garage === 's') {
+    precioGarage = 10000
+  }
+
+  // Patio
+  if (patio === 's') {
+    precioPatio = 12000
+  }
+
+  // Terreno
+  if (terreno > 0 && terreno < 40) {
+    precioTerreno = 30000
+  } else if (terreno < 80) {
+    precioTerreno = 50000
+  } else {
+    precioTerreno = 70000
+  }
+
+  // Suma para  retornar el total
+
+  return (
+    precioHabitaciones +
+    precioBaños +
+    precioGarage +
+    precioPatio +
+    precioTerreno
+  )
 }
+
+// Boton de calcular precio
+
+botonCalculo.addEventListener(
+  'click',
+  () => (resultadoCalculo.innerText = 'U$D ' + calcularPrecio()),
+)

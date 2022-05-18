@@ -8,7 +8,22 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Hola! Haz terminado</h1>
+    <h1>Calculo de precio para venta de propiedad</h1>
+    <form action="">
+      <input
+        type="text"
+        placeholder="Número de habitaciones"
+        id="numeroHabitaciones"
+      />
+      <input type="text" placeholder="Número de baños" id="numeroBaños" />
+      <input type="text" placeholder="Tiene Garage? S/N" id="garage" />
+      <input type="text" placeholder="Tiene Patio? S/N" id="patio" />
+      <input type="text" placeholder="Tamaño del terreno m2" id="terreno" />
+    </form>
+    <button id="botonCalculo">Calcular precio de sugerencia</button>
+    <div class="resultado">
+      <p class="resultado__precio" id="resultadoCalculo"></p>
+    </div>
     <script src="js/main.js"></script>
   </body>
 </html>

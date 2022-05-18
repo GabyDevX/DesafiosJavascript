@@ -10,19 +10,23 @@
   <body>
     <h1>Calculo de precio para venta de propiedad</h1>
     <form action="">
-      <input
-        type="text"
-        placeholder="Número de habitaciones"
-        id="numeroHabitaciones"
-      />
-      <input type="text" placeholder="Número de baños" id="numeroBaños" />
-      <input type="text" placeholder="Tiene Garage? S/N" id="garage" />
-      <input type="text" placeholder="Tiene Patio? S/N" id="patio" />
-      <input type="text" placeholder="Tamaño del terreno m2" id="terreno" />
+      <label for="numeroHabitaciones">Número de habitaciones</label>
+      <input type="text" placeholder="1" id="numeroHabitaciones" />
+      <label for="numeroBaños">Número de baños</label>
+      <input type="text" placeholder="1" id="numeroBaños" />
+      <label for="garage">Tiene Garage?</label>
+      <input type="text" placeholder="S/N" id="garage" />
+      <label for="patio">Tiene Patio?</label>
+      <input type="text" placeholder="S/N" id="patio" />
+      <label for="terreno">Tamaño del terreno en m2</label>
+      <input type="text" placeholder="40" id="terreno" />
     </form>
-    <button id="botonCalculo">Calcular precio de sugerencia</button>
+    <button id="botonCalculo">Calcular precio</button>
     <div class="resultado">
-      <p class="resultado__precio" id="resultadoCalculo"></p>
+      <p class="resultado__precio">
+        Precio estimado para la propiedad:
+        <span id="resultadoCalculo"></span>
+      </p>
     </div>
     <script src="js/main.js"></script>
   </body>
